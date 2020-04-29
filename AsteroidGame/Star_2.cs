@@ -26,7 +26,6 @@ namespace CSharpLevel_2
             {
                 _Position.X = Game.Width + _Size.Width/2;
             }
-
         }
     }
 }
