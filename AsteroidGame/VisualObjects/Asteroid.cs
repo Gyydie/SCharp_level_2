@@ -33,20 +33,5 @@ namespace CSharpLevel_2.VisualObjects
         {
 
         }
-
-        public override void Draw(Graphics g)
-        {
-
-        }
-
-        //public override void Update()
-        //{
-        //    _Position.X += _Direction.X;
-
-        //    if (_Position.X < 0)
-        //    {
-        //        _Position.X = Game.Width + _Size.Width;
-        //    }
-        //}
     }
 }

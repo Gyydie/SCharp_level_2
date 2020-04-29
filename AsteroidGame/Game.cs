@@ -11,10 +11,14 @@ namespace CSharpLevel_2
 {
     internal static class Game
     {
+        private const int __TimetInterval = 100;
+
         private static BufferedGraphicsContext __Context;
         public static BufferedGraphics __Buffer;
 
         private static VisualObject[] __GameObjects;
+        private static Bullet __Bullet;
+        private static SpaceShip __SpaceShip;
 
         public static int Width { get; set; }
 
@@ -53,6 +57,8 @@ namespace CSharpLevel_2
                 game_object.Draw(g);
             }
 
+            __Bullet.Draw(g);
+
             __Buffer.Render();
         }
 
@@ -84,6 +90,26 @@ namespace CSharpLevel_2
                     5));
             }
 
+
+            var rnd = new Random();
+
+            const int asteroid_count = 10;
+            const int asteroid_size  = 25;
+            const int asteroid_max_speed = 20;
+
+            for(var i = 0; i < asteroid_count; i++)
+            {
+                game_objects.Add(new Asteroid(
+                    new Point(rnd.Next(0, Width), rnd.Next(0, Height)),
+                    new Point(-rnd.Next(0, asteroid_max_speed),0),
+                    asteroid_size
+                    ));
+            }
+
+
+            __Bullet = new Bullet(200);
+
+
             __GameObjects = game_objects.ToArray();
         }
         public static void Update()
@@ -92,6 +118,8 @@ namespace CSharpLevel_2
             {
                 game_object.Update();
             }
+
+            __Bullet.Update();
         }
 
     }

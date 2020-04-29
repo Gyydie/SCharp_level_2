@@ -22,5 +22,10 @@ namespace CSharpLevel_2.VisualObjects
             g.FillEllipse(Brushes.Red, rect);
             g.DrawEllipse(Pens.White, rect);
         }
+
+        public override void Update()
+        {
+            _Position = new Point(_Position.X + 3, _Position.Y);
+        }
     }
 }
