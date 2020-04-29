@@ -16,7 +16,7 @@ namespace CSharpLevel_2
 
         public override void Draw(Graphics g)
         {
-            Game.__Buffer.Graphics.FillRectangle(Brushes.White, _Position.X, _Position.Y, _Size.Width, _Size.Height);
+            g.FillRectangle(Brushes.White, _Position.X, _Position.Y, _Size.Width, _Size.Height);
         }
 
         public override void Update()
