@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29609.76
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_1", "CSharpLevel_2\Lesson_1.csproj", "{A8212DC2-BDD0-4589-BFFC-9EDDA4B918E3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson_1", "AsteroidGame\Lesson_1.csproj", "{A8212DC2-BDD0-4589-BFFC-9EDDA4B918E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AD85EB5A-9692-413E-BC4D-D75F61331CE4}
+		SolutionGuid = {11546897-4E78-42FD-A53D-B454EC0BB77F}
 	EndGlobalSection
 EndGlobal
