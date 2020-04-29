@@ -59,27 +59,27 @@ namespace CSharpLevel_2
         {
             List<VisualObject> game_objects = new List<VisualObject>();
             
-            for (var i = 0; i < 30; i++)
+            //for (var i = 0; i < 30; i++)
+            //{
+            //    game_objects.Add(new VisualObject(
+            //        new Point(600, i * 20),
+            //        new Point(15 - i, 20 - i),
+            //        new Size(20, 20)));
+            //}
+
+            for (var i = 0; i < 20; i++)
             {
-                game_objects.Add(new VisualObject(
-                    new Point(600, i * 20),
-                    new Point(15 - i, 20 - i),
-                    new Size(20, 20)));
+                game_objects.Add(new Star(
+                    new Point(600, (int)(i / 2.0 * 20)),
+                    new Point(-i-1, 0),
+                    10));
             }
 
             for (var i = 0; i < 10; i++)
             {
-                game_objects.Add(new Star(
-                    new Point(600, (int)(i / 2.0 * 20)),
-                    new Point(-i, 0),
-                    10));
-            }
-
-            for (var i = 0; i < 5; i++)
-            {
                 game_objects.Add(new Star_2(
                     new Point(500, (int)(i / 2.0 * 20)),
-                    new Point(-i, -1),
+                    new Point(-i-1, -1),
                     5));
             }
 
