@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace CSharpLevel_2
+namespace CSharpLevel_2.VisualObjects
 {
     internal abstract class VisualObject
     {
