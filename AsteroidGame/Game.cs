@@ -57,31 +57,33 @@ namespace CSharpLevel_2
 
         public static void Load()
         {
-            __GameObjects = new VisualObject[30];
-
-            for (var i = 0; i < __GameObjects.Length / 3; i++)
+            List<VisualObject> game_objects = new List<VisualObject>();
+            
+            for (var i = 0; i < 30; i++)
             {
-                __GameObjects[i] = new VisualObject(
+                game_objects.Add(new VisualObject(
                     new Point(600, i * 20),
                     new Point(15 - i, 20 - i),
-                    new Size(20, 20));
+                    new Size(20, 20)));
             }
 
-            for (var i = __GameObjects.Length / 3; i < __GameObjects.Length; i++)
+            for (var i = 0; i < 10; i++)
             {
-                __GameObjects[i] = new Star(
+                game_objects.Add(new Star(
                     new Point(600, (int)(i / 2.0 * 20)),
-                    new Point(- i, 0),
-                    10);
+                    new Point(-i, 0),
+                    10));
             }
 
-            for (var i = __GameObjects.Length-10; i < __GameObjects.Length; i++)
+            for (var i = 0; i < 5; i++)
             {
-                __GameObjects[i] = new Star_2(
+                game_objects.Add(new Star_2(
                     new Point(500, (int)(i / 2.0 * 20)),
                     new Point(-i, -1),
-                    5);
+                    5));
             }
+
+            __GameObjects = game_objects.ToArray();
         }
         public static void Update()
         {
