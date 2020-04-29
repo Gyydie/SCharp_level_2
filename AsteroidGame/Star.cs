@@ -34,5 +34,13 @@ namespace CSharpLevel_2
                 _Position.X = Game.Width + _Size.Width;
             }
         }
+
+        Random random = new Random();
+
+        public void Recreate()
+        {
+            _Position.X = random.Next(Game.Width / 2, Game.Width - _Size.Width);
+            _Position.Y = Convert.ToInt32(random.Next() * (double)(Game.Height - _Size.Height));
+        }
     }
 }

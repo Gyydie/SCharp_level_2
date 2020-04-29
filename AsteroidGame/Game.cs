@@ -58,7 +58,7 @@ namespace CSharpLevel_2
         public static void Load()
         {
             List<VisualObject> game_objects = new List<VisualObject>();
-            
+
             //for (var i = 0; i < 30; i++)
             //{
             //    game_objects.Add(new VisualObject(
