@@ -38,9 +38,7 @@ namespace CSharpLevel_2
             __Timer.Tick += OnVimerTick;
             __Timer.Start();
 
-            Timer timer = new Timer { Interval = 100 };
-            timer.Tick += OnVimerTick;
-            timer.Start();
+            form.KeyDown += OnFormKeyDown;
         }
 
         private static void OnTestButtonClick(object Sender, EventArgs e)
