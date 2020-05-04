@@ -68,6 +68,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VisualObjects\Bullet.cs" />
+    <Compile Include="VisualObjects\ImageObjecys.cs" />
     <Compile Include="VisualObjects\SpaceShip.cs" />
     <Compile Include="VisualObjects\Star.cs" />
     <Compile Include="VisualObjects\Star_2.cs" />

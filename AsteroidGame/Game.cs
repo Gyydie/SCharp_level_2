@@ -54,10 +54,10 @@ namespace CSharpLevel_2
 
             foreach (var game_object in __GameObjects)
             {
-                game_object.Draw(g);
+                game_object?.Draw(g);
             }
 
-            __Bullet.Draw(g);
+            __Bullet?.Draw(g);
 
             __Buffer.Render();
         }
@@ -102,10 +102,10 @@ namespace CSharpLevel_2
                 game_objects.Add(new Asteroid(
                     new Point(rnd.Next(0, Width), rnd.Next(0, Height)),
                     new Point(-rnd.Next(0, asteroid_max_speed),0),
-                    asteroid_size
-                    ));
+                    asteroid_size));
             }
 
+            game_objects.Add(new Asteroid(new Point(Width / 2, 200), new Point(-asteroid_max_speed, 0), asteroid_size));
 
             __Bullet = new Bullet(200);
 
@@ -116,10 +116,31 @@ namespace CSharpLevel_2
         {
             foreach (var game_object in __GameObjects)
             {
-                game_object.Update();
+                game_object?.Update();
             }
 
-            __Bullet.Update();
+            __Bullet?.Update();
+
+            if (__Bullet is null || __Bullet.Rect.Left > Width)
+            {
+                var rnd = new Random();
+                __Bullet = new Bullet(rnd.Next(0, Height));
+            }
+
+            for (var i = 0; i < __GameObjects.Length; i++)
+            {
+                var obj = __GameObjects[i];
+                if(obj is ICollision)
+                {
+                    var collision_object = (ICollision)obj;
+                    if (__Bullet.CheckCollision(collision_object))
+                    {
+                        __Bullet = null;
+                        __GameObjects[i] = null;
+                        System.Media.SystemSounds.Beep.Play();
+                    }
+                }
+            }
         }
 
     }

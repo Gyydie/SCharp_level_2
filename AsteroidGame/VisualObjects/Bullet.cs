@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace CSharpLevel_2.VisualObjects
 {
-    internal class Bullet : VisualObject
+    internal class Bullet : CollisionObject
     {
         private const int __BilletSizeX = 20;
         private const int __BilletSizeY = 5;
+        private const int __BulletSpeed = 3;
 
         public Bullet(int Position): base(new Point (0, Position), Point.Empty, new Size(__BilletSizeX, __BilletSizeY))
         {
@@ -25,7 +26,7 @@ namespace CSharpLevel_2.VisualObjects
 
         public override void Update()
         {
-            _Position = new Point(_Position.X + 3, _Position.Y);
+            _Position = new Point(_Position.X + __BulletSpeed, _Position.Y);
         }
     }
 }
