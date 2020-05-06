@@ -20,9 +20,9 @@ namespace Lesson_2
         /// <param name="Age">Возраст</param>
         public BaseWorker(string Name, string Surname, sbyte Age)
         {
-            name = Name;
+            name    = Name;
             surname = Surname;
-            age = Age;
+            age     = Age;
         }
 
 
@@ -35,6 +35,7 @@ namespace Lesson_2
 
         public int CompareTo(object obj)
         {
+
             if (monthSalary < ((BaseWorker)obj).monthSalary) return 1;
             if (monthSalary > ((BaseWorker)obj).monthSalary) return -1;
             return 0;
