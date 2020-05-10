@@ -19,8 +19,10 @@ namespace CSharpLevel_2
         private static VisualObject[] __GameObjects;
         //private static Bullet __Bullet;
         private static readonly List<Bullet> __Bullets = new List<Bullet>();
+        private static List<Asteroid> __Asteroids = new List<Asteroid>();
         private static SpaceShip __SpaceShip;
         private static Timer __Timer;
+        private static int score = 0;
 
         public static int Width { get; private set; }
 
@@ -192,6 +194,5 @@ namespace CSharpLevel_2
                 }
             }
         }
-
     }
 }
