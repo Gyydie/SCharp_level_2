@@ -168,6 +168,10 @@ namespace CSharpLevel_2
             __Bullets.ForEach(b => b.Update());
 
 
+            foreach (var bullet_to_remove in __Bullets.Where(b => b.Rect.Left > Width).ToArray())
+                __Bullets.Remove(bullet_to_remove);
+
+
             for (var i = 0; i < __GameObjects.Length; i++)
             {
                 var obj = __GameObjects[i];
@@ -176,8 +180,6 @@ namespace CSharpLevel_2
                     var collision_object = (ICollision)obj;
 
                     __SpaceShip.CheckCollision(collision_object);
-
-
 
                     foreach (var bullet in __Bullets.ToArray())
                         if (bullet.CheckCollision(collision_object))
