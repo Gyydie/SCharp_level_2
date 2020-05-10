@@ -17,7 +17,8 @@ namespace CSharpLevel_2
         public static BufferedGraphics __Buffer;
 
         private static VisualObject[] __GameObjects;
-        private static Bullet __Bullet;
+        //private static Bullet __Bullet;
+        private static readonly List<Bullet> __Bullets = new List<Bullet>();
         private static SpaceShip __SpaceShip;
         private static Timer __Timer;
 
@@ -51,7 +52,8 @@ namespace CSharpLevel_2
             switch (e.KeyCode)
             {
                 case Keys.ControlKey:
-                    __Bullet = new Bullet(__SpaceShip.Rect.Y);
+                    //__Bullet = new Bullet(__SpaceShip.Rect.Y);
+                    __Bullets.Add(new Bullet(__SpaceShip.Rect.Y));
                     break;
 
                 case Keys.Up:
@@ -85,7 +87,8 @@ namespace CSharpLevel_2
 
             __SpaceShip.Draw(g);
 
-            __Bullet?.Draw(g);
+            //__Bullet?.Draw(g);
+            __Bullets.ForEach(bullet => bullet.Draw(g));
 
             if (!__Timer.Enabled) return;
 
@@ -139,7 +142,6 @@ namespace CSharpLevel_2
 
             game_objects.Add(new Asteroid(new Point(Width / 2, 200), new Point(-asteroid_max_speed, 0), asteroid_size));
 
-            __Bullet = new Bullet(200);
             __GameObjects = game_objects.ToArray();
 
             __SpaceShip = new SpaceShip(new Point(10, 400), new Point(5, 5), new Size(10, 10));
@@ -162,7 +164,9 @@ namespace CSharpLevel_2
                 game_object?.Update();
             }
 
-            __Bullet?.Update();
+            //__Bullet?.Update();
+            __Bullets.ForEach(b => b.Update());
+
 
             for (var i = 0; i < __GameObjects.Length; i++)
             {
@@ -173,10 +177,13 @@ namespace CSharpLevel_2
 
                     __SpaceShip.CheckCollision(collision_object);
 
-                    if (__Bullet != null)
-                        if (__Bullet.CheckCollision(collision_object))
+
+
+                    foreach (var bullet in __Bullets.ToArray())
+                        if (bullet.CheckCollision(collision_object))
                         {
-                            __Bullet = null;
+                            //__Bullet = null;
+                            __Bullets.Remove(bullet);
                             __GameObjects[i] = null;
                             System.Media.SystemSounds.Beep.Play();
                         }

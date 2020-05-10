@@ -11,7 +11,7 @@ namespace CSharpLevel_2.VisualObjects
     {
         private const int __BilletSizeX = 20;
         private const int __BilletSizeY = 5;
-        private const int __BulletSpeed = 3;
+        private const int __BulletSpeed = 15;
 
         public Bullet(int Position): base(new Point (0, Position), Point.Empty, new Size(__BilletSizeX, __BilletSizeY))
         {
