@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lesson_5.Windows"
         mc:Ignorable="d"
-        Title="EmpEditWindows" Height="450" Width="800">
+        Title="EmpEditWindows" Height="400" Width="400">
     <Grid>
-        
+        <Label Content="Измените данные о сотруднике" 
+               HorizontalAlignment="Left" 
+               Margin="40,20,0,0" VerticalAlignment="Top"/>
+        <Label Content="Имя" HorizontalAlignment="Left" Margin="40,51,0,0" VerticalAlignment="Top"/>
+        <Label Content="Фамилия" HorizontalAlignment="Left" Margin="40,82,0,0" VerticalAlignment="Top"/>
+        <Label Content="Возраст" HorizontalAlignment="Left" Margin="40,113,0,0" VerticalAlignment="Top"/>
+        <Label Content="Зарплата" HorizontalAlignment="Left" Margin="40,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="Отдел" HorizontalAlignment="Left" Margin="40,175,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tboxName" HorizontalAlignment="Left" Height="23" Margin="117,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tboxSurname" HorizontalAlignment="Left" Height="23" Margin="117,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tboxAge" HorizontalAlignment="Left" Height="23" Margin="117,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tboxDep" HorizontalAlignment="Left" Height="23" Margin="117,178,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <TextBox x:Name="tboxSalary" HorizontalAlignment="Left" Height="23" Margin="117,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
+        <Button x:Name="btnSave" Content="Сохранить" HorizontalAlignment="Center" Margin="0,220,0,0" VerticalAlignment="Top" Width="75" Click="BtnSave_Click"/>
     </Grid>
 </Window>

@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lesson_5.Windows"
         mc:Ignorable="d"
-        Title="DepEditWindows" Height="450" Width="800">
+        Title="DepEditWindows" Height="200" Width="400">
     <Grid>
-        
+        <Label Content="Старое название" 
+               HorizontalAlignment="Left" 
+               Margin="50,26,0,0"
+               VerticalAlignment="Top"/>
+
+        <TextBox x:Name="tboxNewName" 
+            HorizontalAlignment="Left" 
+            Height="23" 
+            Margin="169,64,0,0" 
+            TextWrapping="Wrap"
+            VerticalAlignment="Top" 
+            Width="200"
+                 Padding="2"/>
+
+        <TextBlock x:Name="tblOldName" 
+            HorizontalAlignment="Left" 
+            Margin="169,32,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"
+                   Width="auto"
+                   Padding="2" Text="oldName"/>
+
+        <Label Content="Новое название" 
+               HorizontalAlignment="Left" 
+               Margin="50,60,0,0" 
+               VerticalAlignment="Top"/>
+
+        <Button x:Name="btnSave" 
+            Content="Сохранить" 
+            HorizontalAlignment="Center" 
+            Margin="0,110,0,0" 
+            VerticalAlignment="Top" 
+            Width="auto"
+            Padding="3" Click="BtnSave_Click"/>
     </Grid>
 </Window>
