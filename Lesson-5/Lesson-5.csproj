@@ -55,6 +55,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\Programm.cs" />
+    <Compile Include="Class\Departments.cs" />
     <Compile Include="Windows\AddDepWindows.xaml.cs">
       <DependentUpon>AddDepWindows.xaml</DependentUpon>
     </Compile>
@@ -67,6 +69,7 @@
     <Compile Include="Windows\EmpEditWindows.xaml.cs">
       <DependentUpon>EmpEditWindows.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Employee.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -23,5 +23,18 @@ namespace Lesson_5.Windows
         {
             InitializeComponent();
         }
+        /// <summary>Обработчик нажатия кнопки "сохранить"</summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+            if (MainWindow.db.addEmp(tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, tboxDepartment.Text))
+            {
+                MessageBox.Show("Сотрудник добавлен!");
+                this.Close();
+            }
+            else
+                MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
+        }
     }
 }
