@@ -22,10 +22,26 @@
         <Label Grid.Row="0" Content="Сотрудники" HorizontalAlignment="Center" VerticalAlignment="Center" />
         <Label Grid.Column="1" Content="Депатаменты" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <Label Grid.Row="2" Content="Информация" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        
-        <ListBox Grid.Row="1" 
-                 Margin="5,5,5,5"
-                 x:Name="empList"/>
+
+        <ListView x:Name="empList" 
+                  HorizontalAlignment="Stretch" 
+                  Margin="40,10,40,10" 
+                  Grid.Row="1" 
+                  VerticalAlignment="Stretch" 
+                  SelectionChanged="Selected">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat=" {0} {1}">
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListView>
 
         <ListBox Grid.Row="1"
                  Grid.Column="1"
