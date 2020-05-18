@@ -69,14 +69,7 @@ namespace Lesson_5.Class
         /// <returns></returns>
         public bool Equals(Department another)
         {
-            if (this.Name == another.Name)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Name == another.Name;
         }
 
     }

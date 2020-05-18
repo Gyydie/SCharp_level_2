@@ -75,15 +75,8 @@ namespace Lesson_5.Class
         /// <returns></returns>
         public bool Equals(Employee another)
         {
-            if (this.Name == another.Name && this.Surname == another.Surname && this.Age == another.Age &&
-                this.DepartID == another.DepartID && this.Salary == another.Salary)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return this.Name == another.Name && this.Surname == another.Surname && this.Age == another.Age &&
+                this.DepartID == another.DepartID && this.Salary == another.Salary;
         }
     }
 }
