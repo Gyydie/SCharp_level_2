@@ -45,7 +45,7 @@ namespace Lesson_5.Class
                 employees.Add(new Employee(
                     "Имя-" + i, "Фамилия-" + i, (uint)rand.Next(18, 90),
                     rand.Next(35000, 499999),
-                    departments[rand.Next(0, depCount)].Name)
+                    departments[rand.Next(0, depCount)].DepartID)
                     );
             }
         }
@@ -112,7 +112,7 @@ namespace Lesson_5.Class
         /// <param name="salary">Зарплата</param>
         /// <param name="dep">Название отдела</param>
         /// <returns></returns>
-        internal bool addEmp(string name, string surname, string age, string salary, string dep)
+        internal bool addEmp(string name, string surname, string age, string salary, uint dep)
         {
             if (name.Any(char.IsDigit) || surname.Any(char.IsDigit))
                 return false;
@@ -141,22 +141,18 @@ namespace Lesson_5.Class
         /// <param name="newname">Новое название</param>
         /// <param name="oldname">Старое название</param>
         /// <returns></returns>
-        internal bool editDep(string newname, string oldname)
+        internal bool editDep(string newname, uint dep)
         {
             Department editDep = new Department(newname);
             if (!departments.Contains(editDep))
             {
                 for (int i = 0; i < departments.Count; i++)
                 {
-                    if (departments[i].Name == oldname)
+                    if (departments[i].DepartID == dep)
                     {
-                        departments.RemoveAt(i);
-                        departments.Insert(i, editDep);
-                        updateEmpData(newname, oldname);
+                        departments[i].Name = newname;
                     }
                 }
-
-                updateData?.Invoke();
                 return true;
             }
             else
@@ -173,7 +169,7 @@ namespace Lesson_5.Class
         /// <param name="salary">Новая зарплата</param>
         /// <param name="dep">Новый отдел</param>
         /// <returns></returns>
-        internal bool editEmp(Employee old, string name, string surname, string age, string salary, string dep)
+        internal bool editEmp(Employee old, string name, string surname, string age, string salary, uint dep)
         {
             if (name.Any(char.IsDigit) || surname.Any(char.IsDigit))
                 return false;
@@ -210,11 +206,11 @@ namespace Lesson_5.Class
         /// <summary>Проверяет есть существует ли такой отдел</summary>
         /// <param name="dep">Название отдела</param>
         /// <returns></returns>
-        private bool checkDep(string dep)
+        private bool checkDep(uint dep)
         {
             foreach (var depart in departments)
             {
-                if (depart.Name == dep)
+                if (depart.DepartID == dep)
                     return true;
             }
             return false;
@@ -223,13 +219,13 @@ namespace Lesson_5.Class
         /// <summary>Изменяет данные об отделе у сотрудников</summary>
         /// <param name="newname">Новое название отдела</param>
         /// <param name="oldname">Сатрое название отдела</param>
-        private void updateEmpData(string newname, string oldname)
-        {
-            for (int i = 0; i < employees.Count; i++)
-            {
-                if (employees[i].Department == oldname)
-                    employees[i].Department = newname;
-            }
-        }
+        //private void updateEmpData(string newname, string oldname)
+        //{
+        //    for (int i = 0; i < employees.Count; i++)
+        //    {
+        //        if (employees[i].Department == oldname)
+        //            employees[i].Department = newname;
+        //    }
+        //}
     }
 }

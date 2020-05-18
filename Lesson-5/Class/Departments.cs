@@ -4,26 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Lesson_5.Class
 {
-    class Department : IEquatable<Department>
+    class Department : IEquatable<Department>, INotifyPropertyChanged
     {
-        public string Name { get; set; }
+        static uint ID = 0;
+
+        string departmentName;
+
+        public string Name 
+        {
+            get { return this.departmentName; }
+            set
+            {
+                this.departmentName = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.Name)));
+            }
+        }
+
+        public uint DepartID { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>Инициализирует отдел</summary>
         /// <param name="name">Название</param>
         public Department(string name)
         {
             Name = name;
+            DepartID = ID++;
         }
 
         /// <summary>Возвращает название отдела </summary>
         /// <returns></returns>
-        public override string ToString()
-        {
-            return $"{Name}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{Name}";
+        //}
 
         /// <summary>Возвращает информацию о всех сотрудниках в отделе</summary>
         /// <param name="name">Название отдела</param>
@@ -33,14 +51,14 @@ namespace Lesson_5.Class
         {
             var request = from e
                          in list
-                          where e.Department == Name
+                          where e.DepartID == DepartID
                           select e;
 
             string result = String.Empty;
 
             foreach (Employee item in request)
             {
-                result += $"{item.Name} {item.Surname}, возраст: {item.Age}, зарплата: {item.Salary}, отдел: {item.Department}\n";
+                result += $"{item.Name} {item.Surname}, возраст: {item.Age}, зарплата: {item.Salary}, отдел: {item.DepartID}\n";
             }
 
             return result;

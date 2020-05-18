@@ -29,12 +29,12 @@ namespace Lesson_5.Windows
             tboxSurname.Text = employee.Surname;
             tboxAge.Text = employee.Age.ToString();
             tboxSalary.Text = employee.Salary.ToString();
-            tboxDep.Text = employee.Department;
+            tboxDep.Text = employee.DepartID.ToString();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.db.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, tboxDep.Text))
+            if (MainWindow.db.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, uint.Parse(tboxDep.Text)))
             {
                 MessageBox.Show("Данные о сотруднике изменены!");
                 this.Close();

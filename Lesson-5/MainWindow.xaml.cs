@@ -48,7 +48,8 @@ namespace Lesson_5
         {
             if (DepartList.SelectedItem != null)
             {
-                DepEditWindows depEditWindow = new DepEditWindows(DepartList.SelectedItem.ToString());
+                Department editdep = DepartList.SelectedItem as Department;
+                DepEditWindows depEditWindow = new DepEditWindows(editdep.DepartID, editdep.Name);
                 depEditWindow.Owner = this;
                 depEditWindow.Show();
             }

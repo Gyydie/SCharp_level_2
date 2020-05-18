@@ -19,14 +19,17 @@ namespace Lesson_5.Windows
     /// </summary>
     public partial class DepEditWindows : Window
     {
-        public DepEditWindows(string oldName)
+        uint dep;
+        public DepEditWindows(uint id, string oldName)
         {
             InitializeComponent();
             tblOldName.Text = oldName;
+            dep = id;
         }
+
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.db.editDep(tboxNewName.Text, tblOldName.Text))
+            if (MainWindow.db.editDep(tboxNewName.Text, dep))
             {
                 MessageBox.Show("Название отдела изменено!");
                 this.Close();
