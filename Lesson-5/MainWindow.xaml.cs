@@ -12,9 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Lesson_5.Class;
 using Lesson_5.Windows;
-using System.Windows.Controls;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -238,6 +236,18 @@ namespace Lesson_5
             AddDepWindows addDepWindow = new AddDepWindows();
             addDepWindow.Owner = this;
             addDepWindow.Show();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceReference1.Service1Client service = new ServiceReference1.Service1Client();
+            try
+            {
+                TextBlockWcf.Text = service.GetData();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

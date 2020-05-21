@@ -58,6 +58,15 @@
                    VerticalAlignment="Top" 
                    Width="auto"
                    Height="auto"/>
+        
+        <TextBlock Grid.Row="3"
+                   x:Name="TextBlockWcf"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap" 
+                   Text="" 
+                   VerticalAlignment="Top" 
+                   Width="auto"
+                   Height="auto"/>
 
         <Button x:Name="btnEditEmp" 
                 Content="Редактировать сотрудника" 
@@ -99,6 +108,16 @@
                 Width="123"
                 Padding="3" Click="BtnCreateDep_Click" Height="24"/>
 
+        <Button x:Name="btnWcf" 
+                Content="WCF" 
+                Grid.Column="1" 
+                HorizontalAlignment="Left" 
+                Margin="0,0,30,0" 
+                Grid.Row="0" 
+                VerticalAlignment="Top" 
+                Width="123"
+                Padding="3" Click="BtnCreateDep_Click" Height="24"/>
+        
         <DataGrid x:Name="dgWorkers" 
             Grid.Column="1" 
             HorizontalAlignment="Left" 
