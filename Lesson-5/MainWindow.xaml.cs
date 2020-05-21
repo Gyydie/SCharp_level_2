@@ -40,7 +40,7 @@ namespace Lesson_5
             var connectionStringBuilder = new SqlConnectionStringBuilder
             {
                 DataSource = @"(localdb)\MSSQLLocalDB",
-                InitialCatalog = "lesson7_2403"
+                InitialCatalog = "lesson7"
             };
 
             connection = new SqlConnection(connectionStringBuilder.ConnectionString);
