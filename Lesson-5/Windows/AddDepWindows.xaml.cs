@@ -28,13 +28,13 @@ namespace Lesson_5.Windows
         /// <param name="e"></param>
         private void BtnSaveDep_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.db.addDep(tboxNewDep.Text))
-            {
-                MessageBox.Show("Отдел добавлен!");
-                this.Close();
-            }
-            else
-                MessageBox.Show("Такой отдел уже существует!");
+            //if (MainWindow.db.addDep(tboxNewDep.Text))
+            //{
+            //    MessageBox.Show("Отдел добавлен!");
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show("Такой отдел уже существует!");
         }
     }
 }

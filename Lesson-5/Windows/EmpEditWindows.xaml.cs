@@ -20,27 +20,27 @@ namespace Lesson_5.Windows
     /// </summary>
     public partial class EmpEditWindows : Window
     {
-        Employee oldemp;
+        //Employee oldemp;
         internal EmpEditWindows(Employee employee)
         {
             InitializeComponent();
-            oldemp = employee;
-            tboxName.Text = employee.Name;
-            tboxSurname.Text = employee.Surname;
-            tboxAge.Text = employee.Age.ToString();
-            tboxSalary.Text = employee.Salary.ToString();
-            tboxDep.Text = employee.DepartID.ToString();
+            //oldemp = employee;
+            //tboxName.Text = employee.Name;
+            //tboxSurname.Text = employee.Surname;
+            //tboxAge.Text = employee.Age.ToString();
+            //tboxSalary.Text = employee.Salary.ToString();
+            //tboxDep.Text = employee.DepartID.ToString();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.db.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, uint.Parse(tboxDep.Text)))
-            {
-                MessageBox.Show("Данные о сотруднике изменены!");
-                this.Close();
-            }
-            else
-                MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
+            //if (MainWindow.db.editEmp(oldemp, tboxName.Text, tboxSurname.Text, tboxAge.Text, tboxSalary.Text, uint.Parse(tboxDep.Text)))
+            //{
+            //    MessageBox.Show("Данные о сотруднике изменены!");
+            //    this.Close();
+            //}
+            //else
+            //    MessageBox.Show("Такой сотрудник уже существует или введены некоректные данные!");
         }
     }
 }

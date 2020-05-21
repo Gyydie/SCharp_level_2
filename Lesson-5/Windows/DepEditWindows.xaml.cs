@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using System.Data;
 
 namespace Lesson_5.Windows
 {
@@ -19,23 +8,27 @@ namespace Lesson_5.Windows
     /// </summary>
     public partial class DepEditWindows : Window
     {
-        uint dep;
-        public DepEditWindows(uint id, string oldName)
+        public DataRow resultRow { get; set; }
+        public DepEditWindows(DataRow dataRow)
         {
             InitializeComponent();
-            tblOldName.Text = oldName;
-            dep = id;
+            resultRow = dataRow;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            tblOldName.Text = resultRow["dName"].ToString();
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-            if (MainWindow.db.editDep(tboxNewName.Text, dep))
-            {
-                MessageBox.Show("Название отдела изменено!");
-                this.Close();
-            }
-            else
-                MessageBox.Show("Такое название уже используется!");
+            resultRow["dName"] = tboxNewName.Text;
+            this.DialogResult = true;
+        }
+
+        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

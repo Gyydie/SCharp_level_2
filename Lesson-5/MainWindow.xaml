@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Lesson_5"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500
+        " Width="1000
+        ">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200*"/>
@@ -56,39 +58,72 @@
                    VerticalAlignment="Top" 
                    Width="auto"
                    Height="auto"/>
-        
+
         <Button x:Name="btnEditEmp" 
                 Content="Редактировать сотрудника" 
-                Grid.Column="0"
-                Grid.Row="4"
-                HorizontalAlignment="Left"
-                Width="auto"
-                Padding="3" Click="BtnEditEmp_Click"/>
-        
+                Grid.Column="0" 
+                HorizontalAlignment="Left" 
+                Margin="10,00,0,0" 
+                Grid.Row="4" 
+                VerticalAlignment="Top" 
+                Width="155"
+                Padding="3" Click="BtnEditEmp_Click" Height="24"/>
+
         <Button x:Name="btnCreateEmp" 
                 Content="Добавить сотрудника" 
                 Grid.Column="0" 
-                Grid.Row="4"
-                HorizontalAlignment="Right"
-                Width="auto"
-                Padding="3" Click="BtnCreateEmp_Click"/>
+                HorizontalAlignment="Left" 
+                Margin="10,30,0,0" 
+                Grid.Row="4" 
+                VerticalAlignment="Top" 
+                Width="155"
+                Padding="3" Click="BtnCreateEmp_Click" Height="24"/>
 
         <Button x:Name="btnEditDep" 
                 Content="Редактировать отдел" 
-                Grid.Column="1" 
+                Grid.Column="0" 
                 HorizontalAlignment="Right" 
+                Margin="0,30,30,0" 
                 Grid.Row="4" 
                 VerticalAlignment="Top" 
-                Width="auto"
-                Padding="3" Click="BtnEditDep_Click"/>
+                Width="123"
+                Padding="3" Click="BtnEditDep_Click" Height="24"/>
 
         <Button x:Name="btnCreateDep" 
                 Content="Добавить отдел" 
-                Grid.Column="1" 
-                HorizontalAlignment="Left" 
+                Grid.Column="0" 
+                HorizontalAlignment="Right" 
+                Margin="0,0,30,0" 
                 Grid.Row="4" 
                 VerticalAlignment="Top" 
-                Width="auto"
-                Padding="3" Click="BtnCreateDep_Click"/>
+                Width="123"
+                Padding="3" Click="BtnCreateDep_Click" Height="24"/>
+
+        <DataGrid x:Name="dgWorkers" 
+            Grid.Column="1" 
+            HorizontalAlignment="Left" 
+            Height="200" 
+            Margin="40,0,0,0" 
+            Grid.Row="2"
+            Grid.RowSpan="4" 
+            VerticalAlignment="Top" 
+            Width="500"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding}" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding ID}" 
+                                    Header="ID" IsReadOnly="True" Width="Auto"/>
+                <DataGridTextColumn x:Name="nameColum" Binding="{Binding Name}" 
+                                    Header="Name" IsReadOnly="True" Width="Auto"/>
+                <DataGridTextColumn x:Name="SurnameColumn" Binding="{Binding Surname}" 
+                                    Header="Surname" IsReadOnly="True" Width="Auto"/>
+                <DataGridTextColumn x:Name="ageColumn" Binding="{Binding Age}" 
+                                    Header="Age" IsReadOnly="True" Width="Auto"/>
+                <DataGridTextColumn x:Name="SalaryColumn" Binding="{Binding Salary}" 
+                                    Header="Salary" IsReadOnly="True" Width="Auto"/>
+                <DataGridTextColumn x:Name="DepartmentColumn" Binding="{Binding Department}" 
+                                    Header="Department" IsReadOnly="True" Width="Auto"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
